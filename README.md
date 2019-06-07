@@ -10,7 +10,7 @@ We present flexiMAP (“flexible Modeling of Alternative PolyAdenylation), a new
 
 ## Citing flexiMAP
 
-Please cite the following article when using __flexiMAP__
+Please cite the following article when using __flexiMAP__:
 
 Krzysztof J. Szkop, David S. Moss and Irene Nobeli
 ***flexiMAP: A regression-based method for discovering differential alternative polyadenylation events in standard RNA-seq data***
