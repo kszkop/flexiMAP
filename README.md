@@ -10,6 +10,8 @@
 	- [Dependencies](https://github.com/kszkop/flexiMAP#dependencies)
 	- [Installation](https://github.com/kszkop/flexiMAP#installation)
 	- [Loading](https://github.com/kszkop/flexiMAP#loading)
+	- [GettingHelp](https://github.com/kszkop/flexiMAP#getting-help)
+	
 * [Contacts](https://github.com/kszkop/flexiMAP#contacts)
 
 ------------------------------------------------------------------------
