@@ -2,6 +2,18 @@
 ###A regression-based method for discovering differential alternative polyadenylation events in standard RNA-seq data
 <br>
 
+## Table of contents
+
+* [Overview](https://github.com/kszkop/flexiMAP#overview)
+* [Citing flexiMAP](https://github.com/kszkop/flexiMAP#citing-flexiMAP)
+* [Before starting](https://github.com/kszkop/flexiMAP#before-starting)
+	- [Dependencies](https://github.com/kszkop/flexiMAP#dependencies)
+	- [Installation](https://github.com/kszkop/flexiMAP#installation)
+	- [Loading](https://github.com/kszkop/flexiMAP#loading)
+* [Contacts](https://github.com/kszkop/flexiMAP#contacts)
+
+------------------------------------------------------------------------
+
 ## Overview
 
 We present __flexiMAP__ (“flexible Modeling of Alternative PolyAdenylation), a new beta-regression-based method implemented in R, for discovering differential alternative polyadenylation events in standard RNA-seq data. Importantly, __flexiMAP__ allows the modeling of multiple known covariates that often confound the results of RNA-seq data analysis. We show, using simulated data, that __flexiMAP__ is very specific and outperforms in sensitivity existing methods, especially at low fold changes. In addition, the tests on simulated data reveal some hitherto unrecognised caveats of existing methods. 
