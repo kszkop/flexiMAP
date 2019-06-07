@@ -2,8 +2,6 @@
 ### A regression-based method for discovering differential alternative polyadenylation events in standard RNA-seq data
 <br>
 
-![flexiMAP](https://github.com/kszkop/flexiMAP/blob/master/Figure_s5.png)
-
 ## Table of contents
 
 * [Overview](https://github.com/kszkop/flexiMAP#overview)
