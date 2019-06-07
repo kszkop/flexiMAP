@@ -86,16 +86,40 @@ Krzysztof J. Szkop, David S. Moss and Irene Nobeli
 
 ## Usage
 
-### Input
-InputTable: Dataframe containing names of bam files in the first column, condition in format 1,2,3..(and so on) in the second column. Additional columns with optional covariates for modelling with names of covariates as column names.
+	flexiMAP(InputTable, path = NULL, covariates = NULL, polyAsite, reference, TINfilter = NULL, num_samples = 1, link = "logit", type = "ML", link.phi = "log", name = "flexiMAP_out", normalise = FALSE, exprFilt = 20)
+	
+##### InputTable
+Dataframe containing names of bam files in the first column, condition in format 1,2,3..(and so on) in the second column. Additional columns with optional covariates for modelling with names of covariates as column names.
 
-# Format of InputTable dataframe
+Format of InputTable dataframe
 	head(InputTable)
 	Sample         Condition Sex
 	sample1.bam    1         1
 	sample2.bam    1         2
 	sample3.bam    2         1
 	sample4.bam    2         2
+	
+##### path
+Path to folder containg indexed bam files
+
+##### covariates
+
+##### polyAsite
+
+##### reference
+
+##### TINfilter
+##### num_samples 
+
+##### link
+#####  type
+##### link.phi
+
+##### name
+##### normalise
+##### exprFilt20
+
+
 
 ------------------------------------------------------------------------
 
