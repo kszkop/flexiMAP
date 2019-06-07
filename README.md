@@ -91,7 +91,7 @@ Krzysztof J. Szkop, David S. Moss and Irene Nobeli
 ##### InputTable
 Dataframe containing names of bam files in the first column, condition in format 1,2,3..(and so on) in the second column. Additional columns with optional covariates for modelling with names of covariates as column names.
 
-Format of InputTable dataframe
+##### Format of InputTable dataframe
 	head(InputTable)
 	Sample         Condition Sex
 	sample1.bam    1         1
@@ -99,12 +99,14 @@ Format of InputTable dataframe
 	sample3.bam    2         1
 	sample4.bam    2         2
 	
-##### path
+#### path
 Path to folder containg indexed bam files
 
-##### covariates
+#### covariates
+Names of covariates (additional to condition, the same as column names in InputTable)
 
-##### polyAsite
+#### polyAsite
+Dataframe containing polyadenylation sites in format: GeneID, chromosome, strand, genomic coordinate. The sites can be predicted by one of the software used for this purpose (reviewed here: https://onlinelibrary.wiley.com/doi/abs/10.1002/bies.201700090) or can be downloaded from one of the polyadenylation databases (for example: [polyAsite](http://polyasite.unibas.ch), [polyA_DB](http://exon.umdnj.edu/polya_db/), [APASdb](http://genome.bucm.edu.cn/utr/)). Unfortunately, the databases often contain information based on older genome version. Then, we can potentially use one of the software for conversion like CrossMAP(ensembl) available [here](http://crossmap.sourceforge.net) or liftOver(ucsc) available: website [here](https://genome.ucsc.edu/cgi-bin/hgLiftOver) or in Bioconductor, we can use UCSC’s Chain file to apply the liftOver() method provided by package rtracklayer.
 
 ##### reference
 
