@@ -1,5 +1,5 @@
 # flexiMAP
-###A regression-based method for discovering differential alternative polyadenylation events in standard RNA-seq data
+### A regression-based method for discovering differential alternative polyadenylation events in standard RNA-seq data
 <br>
 
 ## Table of contents
@@ -11,7 +11,7 @@
 	- [Installation](https://github.com/kszkop/flexiMAP#installation)
 	- [Loading](https://github.com/kszkop/flexiMAP#loading)
 	- [GettingHelp](https://github.com/kszkop/flexiMAP#getting-help)
-	
+* [Usage](https://github.com/kszkop/flexiMAP#usage)
 * [Contacts](https://github.com/kszkop/flexiMAP#contacts)
 
 ------------------------------------------------------------------------
@@ -81,6 +81,21 @@ Krzysztof J. Szkop, David S. Moss and Irene Nobeli
  A complete reference manual is available [here](https://github.com/kszkop/flexiMAP/master/ReferenceManual.pdf).   
 
  Bugs and errors can be reported at the [issues](https://github.com/kszkop/flexiMAP/issues) page on GitHub. Before filing new issues, please read the documentation and take a look at currently open and already closed discussions.
+
+------------------------------------------------------------------------
+
+## Usage
+
+### Input
+InputTable: Dataframe containing names of bam files in the first column, condition in format 1,2,3..(and so on) in the second column. Additional columns with optional covariates for modelling with names of covariates as column names.
+
+# Format of InputTable dataframe
+	head(InputTable)
+	Sample         Condition Sex
+	sample1.bam    1         1
+	sample2.bam    1         2
+	sample3.bam    2         1
+	sample4.bam    2         2
 
 ------------------------------------------------------------------------
 
