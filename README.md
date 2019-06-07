@@ -43,9 +43,8 @@ Krzysztof J. Szkop, David S. Moss and Irene Nobeli
 	
 	library(devtools)
     install_github("kszkop/flexiMAP", dependencies = TRUE)
-    
-    
-    ------------------------------------------------------------------------
+
+------------------------------------------------------------------------
 
 ## Contacts
 
