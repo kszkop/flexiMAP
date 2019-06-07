@@ -1,0 +1,24 @@
+Package: flexiMAP
+Type: Package
+Title: Flexible Modelling of Alternative Polyadenylation
+Version: 0.1.0
+Authors@R: 
+    person(given = "Krzysztof J.",
+           family = "Szkop",
+           role = c("aut", "cre"),
+           email = "krzysztof.szkop@gmail.com")
+    person(given = "David S. Moss",
+           family = "Szkop",
+           role = c("aut", "cre"))
+    person(given = "Irene",
+           family = "Nobeli",
+           role = c("aut", "cre"),
+           email = "i.nobeli@bbk.ac.uk")
+Description: flexiMAP: A beta-regression-based method for discovering differential alternative polyadenylation events in standard RNA-seq data.
+License: GPL-3
+Encoding: UTF-8
+LazyData: true
+Imports: dplyr, GenomicRanges,Rsubread,betareg,Rsamtools
+Suggests: BiocStyle,knitr
+RoxygenNote: 6.1.1
+Depends: R (>= 3.4.3)
