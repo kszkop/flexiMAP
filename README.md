@@ -6,6 +6,7 @@
 
 * [Overview](https://github.com/kszkop/flexiMAP#overview)
 * [Citing flexiMAP](https://github.com/kszkop/flexiMAP#citing-flexiMAP)
+* [License](https://github.com/kszkop/flexiMAP#license)
 * [Before starting](https://github.com/kszkop/flexiMAP#before-starting)
 	- [Dependencies](https://github.com/kszkop/flexiMAP#dependencies)
 	- [Installation](https://github.com/kszkop/flexiMAP#installation)
@@ -32,6 +33,12 @@ Please cite the following article when using __flexiMAP__:
 
 Krzysztof J. Szkop, David S. Moss and Irene Nobeli
 ***flexiMAP: A regression-based method for discovering differential alternative polyadenylation events in standard RNA-seq data***
+
+------------------------------------------------------------------------
+
+## License
+
+[![Packagist](https://img.shields.io/packagist/l/doctrine/orm.svg?maxAge=2592000?style=flat)](https://opensource.org/licenses/MIT)
 
 ------------------------------------------------------------------------
 
