@@ -56,6 +56,30 @@ Krzysztof J. Szkop, David S. Moss and Irene Nobeli
 	library(devtools)
     install_github("kszkop/flexiMAP", dependencies = TRUE)
 
+### Loading
+
+ To load __flexiMAP__ run
+
+	library(flexiMAP)
+
+### Getting help
+
+ Next sections illustrate how to make use of __flexiMAP__ by introducing all functions included in the package and reporting most of the data structures and graphical outputs generated with the default options. Similar information are reported in the vignette returned by
+ 
+	browseVignettes("flexiMAP")
+ 
+ For additional examples and further details about the meaning and usage of all parameters in a function run
+ 
+	?function_name
+
+ or
+
+	help(package = flexiMAP)
+ 
+ A complete reference manual is available [here](https://github.com/kszkop/flexiMAP/master/ReferenceManual.pdf).   
+
+ Bugs and errors can be reported at the [issues](https://github.com/kszkop/flexiMAP/issues) page on GitHub. Before filing new issues, please read the documentation and take a look at currently open and already closed discussions.
+
 ------------------------------------------------------------------------
 
 ## Contacts
