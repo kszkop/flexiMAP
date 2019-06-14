@@ -34,6 +34,8 @@ Please cite the following article when using __flexiMAP__:
 Krzysztof J. Szkop, David S. Moss and Irene Nobeli
 ***flexiMAP: A regression-based method for discovering differential alternative polyadenylation events in standard RNA-seq data***
 
+<a href="https://doi.org/10.5281/zenodo.3238619"><img src="https://zenodo.org/badge/DOI/10.5281/zenodo.3238619.svg" alt="DOI"></a>
+
 ------------------------------------------------------------------------
 
 ## License
