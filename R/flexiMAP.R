@@ -97,7 +97,7 @@ flexiMAP <- function(InputTable, path=NULL, covariates=NULL, polyAsite , referen
     }
   }
   #Prepare anotation
-  UTRannotation <- flexiMAP_annotPrep(polyAsite=polyAsite,reference=annot,TINfilter=TINfilter)
+  UTRannotation <- flexiMAP_annotPrep(polyAsite=polyAsite,reference=reference,TINfilter=TINfilter)
   #Counting
   listBams <- sapply(as.character(InputTable[,1]), function(x) ifelse(is.null(path), gsub(' ','', x), gsub(' ','',paste(path,x,sep=''))),simplify = TRUE, USE.NAMES = F)
 
