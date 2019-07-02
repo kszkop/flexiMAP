@@ -73,15 +73,15 @@ flexiMAP <- function(InputTable, path=NULL, covariates=NULL, polyAsite , referen
   if(!is.data.frame(reference)){
     stop("reference must be dataframe")
   }
-  #if(!length(which(c("logit", "probit", "cloglog", "cauchit", "log", "loglog")==link))==0){
-  #  stop("Please provide link parameter. Must be on of: 'logit','probit','cloglog', 'cauchit', 'log', 'loglog'.For explanation see ?betareg \n")
-  #}
-  #if(!length(which(c("ML", "BC","BR")==type))==0){
-  #  stop("Please provide link parameter. Must be on of: 'ML', 'BC', 'BR'.For explanation see ?betareg \n")
-  #}
-  #if(!length(which(c("identity", "log", "sqrt")==link.phi))==0){
-  #  stop("Please provide link parameter. Must be on of: 'identity', 'log', 'sqrt'.For explanation see ?betareg \n")
-  #}
+  if(length(which(c("logit", "probit", "cloglog", "cauchit", "log", "loglog")==link))==0){
+    stop("Please provide link parameter. Must be on of: 'logit','probit','cloglog', 'cauchit', 'log', 'loglog'.For explanation see ?betareg \n")
+  }
+  if(length(which(c("ML", "BC","BR")==type))==0){
+    stop("Please provide link parameter. Must be on of: 'ML', 'BC', 'BR'.For explanation see ?betareg \n")
+  }
+  if(length(which(c("identity", "log", "sqrt")==link.phi))==0){
+    stop("Please provide link parameter. Must be on of: 'identity', 'log', 'sqrt'.For explanation see ?betareg \n")
+  }
   if(!normalise%in%c("TRUE","FALSE")){
     stop("normalise parameter must be either TRUE or FALSE.\n")
   }
