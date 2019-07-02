@@ -52,8 +52,8 @@
 
 
 flexiMAP <- function(InputTable, path=NULL, covariates=NULL, polyAsite , reference , TINfilter = NULL,
-                    num_samples = 1, link ='logit', type = 'ML', link.phi='log',
-                    name = 'flexiMAP_out' , normalise=FALSE, exprFilt = 20)
+                    num_samples = 1, link ="logit", type ="ML", link.phi="log",
+                    name = "flexiMAP_out" , normalise=FALSE, exprFilt = 20)
 {
   if(is.null(InputTable)){
     stop("Please provide an InputTable.")
