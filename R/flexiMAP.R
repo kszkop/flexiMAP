@@ -97,13 +97,13 @@ flexiMAP <- function(InputTable, path=NULL, covariates=NULL, polyAsite , referen
     }
   }
   #Prepare anotation
-  UTRannotation <- flexiMap_annotPrep(polyAsite=polyAsite,reference=annot,TINfilter=TINfilter)
+  UTRannotation <- flexiMAP_annotPrep(polyAsite=polyAsite,reference=annot,TINfilter=TINfilter)
   #Counting
   listBams <- sapply(as.character(InputTable[,1]), function(x) ifelse(is.null(path), gsub(' ','', x), gsub(' ','',paste(path,x,sep=''))),simplify = TRUE, USE.NAMES = F)
 
-  UTRcounts <- flexiMap_counting(listBams = listBams, UTRannotation = UTRannotation)
+  UTRcounts <- flexiMAP_counting(listBams = listBams, UTRannotation = UTRannotation)
   #Filtering
-  UTRcounts_filt <- flexiMap_filtering(UTRcounts = UTRcounts, listBams = listBams, normalise = normalise, exprFilt = exprFilt)
+  UTRcounts_filt <- flexiMAP_filtering(UTRcounts = UTRcounts, listBams = listBams, normalise = normalise, exprFilt = exprFilt)
   #beta-regression
   results <- flexiMAP_stat(UTRcounts_filt = UTRcounts_filt, InputTable = InputTable, num_samples = num_samples, covariates = covariates,link = link , type = type, link.phi = link.phi,name=name)
 
