@@ -11,7 +11,7 @@ flexiMAP_annotPrep <- function(polyAsite, reference, TINfilter)
 
   #Remove transcripts of the same gene that have the same UTR start site by taking random of the transcripts as represantative and take only these transcript that have the UTR start site that is equal or further downstream of last part of coding region across isoforms
   reference <- reference[!duplicated(reference[c("geneID", "UTR_start")]),]
-  reference <- data.table::setDT(reference)[,(transID = transID, chr=chr, strand=strand, Tstart=Tstart, Tend=Tend, CDSstart=CDSstart, UTR_start=UTR_start, test = ifelse(strand=='+', max(CDSend) <= UTR_start, min(CDSstart) >= UTR_start)), by = 'geneID']
+  reference <- data.table::setDT(reference)[,.(transID = transID, chr=chr, strand=strand, Tstart=Tstart, Tend=Tend, CDSstart=CDSstart, UTR_start=UTR_start, test = ifelse(strand=='+', max(CDSend) <= UTR_start, min(CDSstart) >= UTR_start)), by = 'geneID']
   reference <- reference[reference$test==TRUE,]
 
   #Merge transcript annotation with polyAsites annotation
