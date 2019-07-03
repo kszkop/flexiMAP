@@ -97,7 +97,8 @@ flexiMAP <- function(InputTable, path=NULL, covariates=NULL, polyAsite , referen
     }
   }
   #Load required packages
-  require(dplyr)
+  library(data.table)
+  library(dplyr)
 
   #Prepare anotation
   UTRannotation <- flexiMAP_annotPrep(polyAsite=polyAsite,reference=reference,TINfilter=TINfilter)
