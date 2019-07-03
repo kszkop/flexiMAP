@@ -52,6 +52,7 @@ Krzysztof J. Szkop, David S. Moss and Irene Nobeli
 
 * CRAN
     + dplyr (>= 0.8.1)
+    + data.table(>=1.12.2)
     + betareg (>= 3.1-2)
 * Bioconductor
     + GenomicRanges (>= 1.36.0)
