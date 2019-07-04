@@ -45,9 +45,9 @@ flexiMAP_annotPrep <- function(polyAsite, reference, TINfilter)
   proximal <- data.frame(chr = proximal$chr, start=ifelse(proximal$strand=='+',proximal$UTR_start,proximal$polyAsite), end=ifelse(proximal$strand=='+',proximal$polyAsite,proximal$UTR_start), geneID = proximal$geneID, strand=proximal$strand, stringsAsFactors = FALSE)
 
   #Remove genes with overlapping with 3'UTR
-  ranges=GenomicRanges::GRanges(seqnames=distal$chr, IRanges::IRanges(start=distal$start,end=distal$end),names=distal$geneID)
+  ranges=GenomicRanges::GRanges(seqnames=distal$chr, IRanges(start=distal$start,end=distal$end),names=distal$geneID)
   OverTmp <- GenomicRanges::findOverlaps(ranges)
-  overlaps <- IRanges::from(OverTmp)[duplicated(IRanges::from(OverTmp))]
+  overlaps <- from(OverTmp)[duplicated(from(OverTmp))]
   overlapsGene <- as.character(ranges[overlaps]$names)
 
   #remove overlapping genes
