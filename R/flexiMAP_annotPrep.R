@@ -45,9 +45,9 @@ flexiMAP_annotPrep <- function(polyAsite, reference, TINfilter)
   proximal <- data.frame(chr = proximal$chr, start=ifelse(proximal$strand=='+',proximal$UTR_start,proximal$polyAsite), end=ifelse(proximal$strand=='+',proximal$polyAsite,proximal$UTR_start), geneID = proximal$geneID, strand=proximal$strand, stringsAsFactors = FALSE)
 
   #Remove genes with overlapping with 3'UTR
-  ranges=GenomicRanges::GRanges(seqnames=distal$chr, IRanges(start=distal$start,end=distal$end),names=distal$geneID)
+  ranges=GenomicRanges::GRanges(seqnames=distal$chr, IRanges::IRanges(start=distal$start,end=distal$end),names=distal$geneID)
   OverTmp <- GenomicRanges::findOverlaps(ranges)
-  overlaps <- from(OverTmp)[duplicated(from(OverTmp))]
+  overlaps <- IRanges::from(OverTmp)[duplicated(IRanges::from(OverTmp))]
   overlapsGene <- as.character(ranges[overlaps]$names)
 
   #remove overlapping genes
@@ -72,9 +72,8 @@ flexiMAP_annotPrep <- function(polyAsite, reference, TINfilter)
 
   #add variant ID, order first
   short <- short[with(short, order(short$geneID, ifelse(short$strand=='+',short$end, short$start))),]
-
-  short_newIDs <- short %>% group_by(geneID) %>% mutate(IDs=paste(as.character(geneID), seq(1:length(geneID)),sep='.'))
-  short$geneID <- as.character(short_newIDs$IDs)
+  short <- data.table::setDT(short)[, .(chr=chr,start=start,end=end, strand=strand, IDs=paste(as.character(geneID), seq(1:.N),sep='.')), by = geneID]
+  short <- short[,c(6,2:5)]
 
   #Output
   UTRannotation[[1]] <- long

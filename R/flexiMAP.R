@@ -96,10 +96,6 @@ flexiMAP <- function(InputTable, path=NULL, covariates=NULL, polyAsite , referen
       path <- paste(path,'/',sep='')
     }
   }
-  #Load required packages
-  library(data.table)
-  library(dplyr)
-
   #Prepare anotation
   UTRannotation <- flexiMAP_annotPrep(polyAsite=polyAsite,reference=reference,TINfilter=TINfilter)
   #Counting
