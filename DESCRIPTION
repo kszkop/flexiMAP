@@ -21,4 +21,4 @@ LazyData: true
 Imports: dplyr,data.table,GenomicRanges,Rsubread,betareg,Rsamtools
 Suggests: BiocStyle,knitr
 RoxygenNote: 6.1.1
-Depends: R (>= 3.4.3), data.table (>= 1.12.2)
+Depends: R (>= 3.4.3), data.table (>= 1.12.2), dplyr (>= 0.8.1)
