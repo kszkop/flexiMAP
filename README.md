@@ -56,6 +56,7 @@ Krzysztof J. Szkop, David S. Moss and Irene Nobeli
     + betareg (>= 3.1-2)
 * Bioconductor
     + GenomicRanges (>= 1.36.0)
+    + IRanges (>=2.16.0)
     + Rsubread (>=1.34.1)
     + Rsamtools (>=2.0.0)
 
