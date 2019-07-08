@@ -4,7 +4,7 @@
 #'
 #' @param InputTable  Dataframe containing names of bam files in the first column, condition in format 1,2,3..(and so on) in the second column. Additional columns with optional covariates for modelling with names of covariates as column names.
 #' @param path  Path to folder containg indexed bam files
-#' @param covariates names of covariates (additional to condition, the same as column names in InputTable)
+#' @param covariates optional, names of covariates (additional to condition, the same as column names in InputTable)
 #' @param polyAsite Dataframe containing polyadenylation sites in format: GeneID, chromosome, strand, genomic coordinate
 #' @param reference Dataframe containing reference in format: GeneID, transID, chromosome, strand, transcript start, transcript end, CDS start, CDS end
 #' @param TINfilter optional, a vector of gene symbols to be removed from analysis because of degradation bias. The TIN values can be obtained by running RSeQC software. The genes with low TIN values have high 3' bias and should be removed from analysis
@@ -15,6 +15,7 @@
 #' @param name optional name of output file if different from default
 #' @param exprFilt minimal number counts in short region in all samples, default 20
 #' @param normalise Default FALSE. Optionally the counts can be normalised for library sizes
+#' @param nthreads Default 1. integer giving the number of threads used for running counting function.
 #'
 #' @return An object containing p-values, adjusted p-values for each tested polyadenylation proximal site of a gene. In addition the output contain ratios for each sample. THe output files is also written out to working directory.
 #'
@@ -44,7 +45,7 @@
 #' TINfilter = c(CYP2R1, LSM1)
 #'
 #' #Run Analysis
-#' flexiMAP(InputTable, path='/home/bamFolder/', covariates=c('sex'), polyAsite, reference, TINfilter = c(CYP2R1, LSM1), num_samples = 1, link ='logit', type = 'ML', link.phi='log', name = 'flexiMAP_out' , normalise=FALSE, exprFilt = 20)
+#' flexiMAP(InputTable, path='/home/bamFolder/', covariates=c('sex'), polyAsite, reference, TINfilter = c(CYP2R1, LSM1), num_samples = 1, link ='logit', type = 'ML', link.phi='log', name = 'flexiMAP_out' , normalise=FALSE, exprFilt = 20, nthreads=1)
 #'
 #'
 #'
@@ -53,7 +54,7 @@
 
 flexiMAP <- function(InputTable, path=NULL, covariates=NULL, polyAsite , reference , TINfilter = NULL,
                     num_samples = 1, link ="logit", type ="ML", link.phi="log",
-                    name = "flexiMAP_out" , normalise=FALSE, exprFilt = 20)
+                    name = "flexiMAP_out" , normalise=FALSE, exprFilt = 20 , nthreads=1)
 {
   if(is.null(InputTable)){
     stop("Please provide an InputTable.")
@@ -91,20 +92,28 @@ flexiMAP <- function(InputTable, path=NULL, covariates=NULL, polyAsite , referen
   if(!is.numeric(num_samples)){
     stop("num_samples must be a number")
   }
+  if(!is.numeric(nthreads)){
+    stop("nthreads must be a number")
+  }
   if(!is.null(path)){
     if(unlist(strsplit(path,''))[length(unlist(strsplit(path,'')))]!='/'){
       path <- paste(path,'/',sep='')
     }
   }
   #Prepare anotation
+  #Progress print
+  cat("\n","Annotation preparation","\n")
   UTRannotation <- flexiMAP_annotPrep(polyAsite=polyAsite,reference=reference,TINfilter=TINfilter)
+  cat("\n","Counting reads","\n")
   #Counting
   listBams <- sapply(as.character(InputTable[,1]), function(x) ifelse(is.null(path), gsub(' ','', x), gsub(' ','',paste(path,x,sep=''))),simplify = TRUE, USE.NAMES = F)
 
-  UTRcounts <- flexiMAP_counting(listBams = listBams, UTRannotation = UTRannotation)
+  UTRcounts <- flexiMAP_counting(listBams = listBams, UTRannotation = UTRannotation , nthreads=nthreads)
   #Filtering
+  cat("\n","Filtering","\n")
   UTRcounts_filt <- flexiMAP_filtering(UTRcounts = UTRcounts, listBams = listBams, normalise = normalise, exprFilt = exprFilt)
   #beta-regression
+  cat("\n","Modelling","\n")
   results <- flexiMAP_stat(UTRcounts_filt = UTRcounts_filt, InputTable = InputTable, num_samples = num_samples, covariates = covariates,link = link , type = type, link.phi = link.phi,name=name)
 
   return(results)

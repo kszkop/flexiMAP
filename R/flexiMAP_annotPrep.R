@@ -72,8 +72,8 @@ flexiMAP_annotPrep <- function(polyAsite, reference, TINfilter)
 
   #add variant ID, order first
   short <- short[with(short, order(short$geneID, ifelse(short$strand=='+',short$end, short$start))),]
-  short <- data.table::setDT(short)[, .(chr=chr,start=start,end=end, strand=strand, IDs=paste(as.character(geneID), seq(1:.N),sep='.')), by = geneID]
-  short <- short[,c(6,2:5)]
+  short <- data.table::setDT(short)[, .(chr=chr,start=start,end=end, strand=strand, geneID=paste(as.character(geneID), seq(1:.N),sep='.')), by = geneID]
+  short <- as.data.frame(short[,c(6,2:5)])
 
   #Output
   UTRannotation[[1]] <- long

@@ -1,4 +1,4 @@
-flexiMAP_counting <- function(listBams, UTRannotation)
+flexiMAP_counting <- function(listBams, UTRannotation, nthreads)
 {
   #Initate output
   UTRcounts <- list()
@@ -8,8 +8,8 @@ flexiMAP_counting <- function(listBams, UTRannotation)
   featureCounts_annot_short <- UTRannotation[[2]]
 
   #Counting
-  long_count <- Rsubread::featureCounts(listBams,annot.ext=featureCounts_annot_long,allowMultiOverlap = FALSE, ignoreDup=TRUE,useMetaFeatures=FALSE)
-  short_count <- Rsubread::featureCounts(listBams,annot.ext=featureCounts_annot_short,allowMultiOverlap=TRUE, ignoreDup=TRUE,useMetaFeatures=FALSE)
+  long_count <- Rsubread::featureCounts(listBams,annot.ext=featureCounts_annot_long,allowMultiOverlap = FALSE, ignoreDup=TRUE,useMetaFeatures=FALSE,nthreads=nthreads)
+  short_count <- Rsubread::featureCounts(listBams,annot.ext=featureCounts_annot_short,allowMultiOverlap=TRUE, ignoreDup=TRUE,useMetaFeatures=FALSE,nthreads=nthreads)
 
   #Output
   UTRcounts[[1]] <- as.data.frame(long_count$counts)
