@@ -156,6 +156,9 @@ minimal number of samples with ratio of (0,1).
 #### exprFilt20
 minimal number counts in short region in all samples, default 20
 
+#### nthreads
+integer giving the number of threads used for running counting function, default 1
+
 #### name (optional)
 Name of output file if different from default (default: flexiMAP_out)
 
