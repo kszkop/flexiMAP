@@ -54,7 +54,7 @@
 
 flexiMAP <- function(InputTable, path=NULL, covariates=NULL, polyAsite , reference , TINfilter = NULL,
                     num_samples = 1, link ="logit", type ="ML", link.phi="log",
-                    name = "flexiMAP_out" , normalise=FALSE, exprFilt = 20 , nthreads=1)
+                    name = "flexiMAP_out" , normalise=FALSE, exprFilt = 20 , nthreads=1, pairedEnd=FALSE)
 {
   if(is.null(InputTable)){
     stop("Please provide an InputTable.")
@@ -111,7 +111,7 @@ flexiMAP <- function(InputTable, path=NULL, covariates=NULL, polyAsite , referen
   UTRcounts <- flexiMAP_counting(listBams = listBams, UTRannotation = UTRannotation , nthreads=nthreads)
   #Filtering
   cat("\n","Filtering","\n")
-  UTRcounts_filt <- flexiMAP_filtering(UTRcounts = UTRcounts, listBams = listBams, normalise = normalise, exprFilt = exprFilt)
+  UTRcounts_filt <- flexiMAP_filtering(UTRcounts = UTRcounts, listBams = listBams, normalise = normalise, exprFilt = exprFilt, pairedEnd=pairedEnd)
   #beta-regression
   cat("\n","Modelling","\n")
   results <- flexiMAP_stat(UTRcounts_filt = UTRcounts_filt, InputTable = InputTable, num_samples = num_samples, covariates = covariates,link = link , type = type, link.phi = link.phi,name=name)
