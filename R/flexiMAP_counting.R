@@ -8,7 +8,7 @@ flexiMAP_counting <- function(listBams, UTRannotation, nthreads, pairedEnd=FALSE
   featureCounts_annot_short <- UTRannotation[[2]]
 
   #Counting
-  if(!isTRUE(pairedEnd){
+  if(!isTRUE(pairedEnd)){
     long_count <- Rsubread::featureCounts(listBams,annot.ext=featureCounts_annot_long,allowMultiOverlap = FALSE, ignoreDup=TRUE,useMetaFeatures=FALSE,nthreads=nthreads, isPairedEnd=FALSE)
     short_count <- Rsubread::featureCounts(listBams,annot.ext=featureCounts_annot_short,allowMultiOverlap=TRUE, ignoreDup=TRUE,useMetaFeatures=FALSE,nthreads=nthreadsis, isPairedEnd=FALSE)
   } else {
