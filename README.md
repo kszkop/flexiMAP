@@ -101,7 +101,7 @@ Krzysztof J. Szkop, David S. Moss and Irene Nobeli
 
 ## Usage
 
-	flexiMAP(InputTable, path = NULL, covariates = NULL, polyAsite, reference, TINfilter = NULL, num_samples = 1, link = "logit", type = "ML", link.phi = "log", name = "flexiMAP_out", normalise = FALSE, exprFilt = 20)
+	flexiMAP(InputTable, path = NULL, covariates = NULL, polyAsite, reference, TINfilter = NULL, num_samples = 1, pairedEnd=FALSE, link = "logit", type = "ML", link.phi = "log", name = "flexiMAP_out", normalise = FALSE, exprFilt = 20)
 	
 #### InputTable
 Dataframe containing names of bam files in the first column, condition in format 1,2,3..(and so on) in the second column. Additional columns with optional covariates for modelling with names of covariates as column names.
@@ -152,6 +152,9 @@ minimal number of samples with ratio of (0,1).
 <p align="center">
 <img src="https://github.com/kszkop/flexiMAP/blob/master/Figure_s1.png" width="750" />
 </p>
+
+#### pairedEnd
+whether it is paired-end rna-seq, default FALSE
 
 #### exprFilt20
 minimal number counts in short region in all samples, default 20
