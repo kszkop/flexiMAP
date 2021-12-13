@@ -108,10 +108,10 @@ flexiMAP <- function(InputTable, path=NULL, covariates=NULL, polyAsite , referen
   #Counting
   listBams <- sapply(as.character(InputTable[,1]), function(x) ifelse(is.null(path), gsub(' ','', x), gsub(' ','',paste(path,x,sep=''))),simplify = TRUE, USE.NAMES = F)
 
-  UTRcounts <- flexiMAP_counting(listBams = listBams, UTRannotation = UTRannotation , nthreads=nthreads)
+  UTRcounts <- flexiMAP_counting(listBams = listBams, UTRannotation = UTRannotation , nthreads=nthreads, pairedEnd=pairedEnd)
   #Filtering
   cat("\n","Filtering","\n")
-  UTRcounts_filt <- flexiMAP_filtering(UTRcounts = UTRcounts, listBams = listBams, normalise = normalise, exprFilt = exprFilt, pairedEnd=pairedEnd)
+  UTRcounts_filt <- flexiMAP_filtering(UTRcounts = UTRcounts, listBams = listBams, normalise = normalise, exprFilt = exprFilt)
   #beta-regression
   cat("\n","Modelling","\n")
   results <- flexiMAP_stat(UTRcounts_filt = UTRcounts_filt, InputTable = InputTable, num_samples = num_samples, covariates = covariates,link = link , type = type, link.phi = link.phi,name=name)
